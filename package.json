@@ -1,0 +1,39 @@
+{
+  "name": "concept_streetwear",
+  "version": "1.0.0",
+  "description": "Streetwear Landing Page",
+  "main": "webpack.config.js",
+  "scripts": {
+    "sass": "node-sass ./src/scss/main.scss ./dist/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "concept_streetwear"
+  },
+  "keywords": [
+    "concept",
+    "streetwear",
+    "aaron",
+    "asuncion",
+    "aaronpasuncion",
+    "aaronasuncion",
+    "front",
+    "end",
+    "development",
+    "html",
+    "html5",
+    "css",
+    "css3",
+    "javascript",
+    "gsap",
+    "sass",
+    "scss",
+    "vanilla",
+    "design",
+    "fashion",
+    "street",
+    "culture"
+  ],
+  "author": "Aaron Asuncion",
+  "license": "ISC"
+}
