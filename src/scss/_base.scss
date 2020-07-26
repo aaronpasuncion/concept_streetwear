@@ -1,0 +1,294 @@
+/*
+
+VARIABLES
+
+*/
+
+$bg: #171717;
+$grey-light: #8b8b8b;
+$grey-dark: #515151;
+
+$shadow: 0 3rem 4rem rgba(0, 0, 0, 0.15);
+
+/*
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == xs-phone {
+    @media only screen and (max-width: 31.25em) {
+      @content;
+    } //500px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-smaller {
+    @media only screen and (max-width: 48em) {
+      @content;
+    } // 768px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
+/*
+
+BASE SETUP
+
+*/
+
+* *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0 10vw;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  overflow-x: hidden;
+  color: #000;
+
+  @include respond(tab-port) {
+    padding: 0 5vw;
+  }
+}
+
+/*
+
+HEADERS
+
+*/
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.heading-primary {
+  font-size: 5vw;
+  font-weight: 500;
+
+  @include respond(tab-port) {
+    font-size: 6vw;
+  }
+  @include respond(tab-port) {
+    font-size: 7vw;
+  }
+  @include respond(phone) {
+    font-size: 8vw;
+  }
+}
+.heading-secondary {
+  font-size: 4.6vw;
+}
+.heading-tertiary {
+  font-size: 3.2vw;
+
+  @include respond(tab-port) {
+    font-size: 4.6vw;
+  }
+
+  @include respond(tab-smaller) {
+    font-size: 7.6vw;
+  }
+}
+
+.logo {
+  font-size: 2.4rem;
+  color: #fff;
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
+}
+
+.text {
+  font-size: 2vw;
+  font-weight: 200;
+  line-height: 1.4;
+
+  @include respond(tab-port) {
+    line-height: 1.8;
+  }
+
+  @include respond(tab-smaller) {
+    font-size: 4vw;
+  }
+}
+
+.sub-text {
+  font-size: 1.5vw;
+  font-weight: 200;
+}
+
+/*
+
+UTILITY
+
+*/
+
+.u-grey-light {
+  color: $grey-light;
+}
+
+.u-grey-dark {
+  color: $grey-dark;
+}
+
+.u-mg-bottom-sm {
+  margin-bottom: 2rem;
+}
+
+.nav-open {
+  opacity: 1 !important;
+  z-index: 100 !important;
+  transition: 0.5s all;
+}
+
+.nav-item-visible {
+  display: inline-block !important;
+}
+
+.fixed-header {
+  width: 100%;
+  height: auto !important;
+  padding: 0.5rem 2rem;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  .logo {
+    color: #000;
+  }
+
+  .nav__btn {
+    .nav__line {
+      background-color: #000;
+    }
+  }
+}
+
+.navigation-header {
+  background: none !important;
+
+  .logo {
+    color: #000;
+  }
+
+  .nav__btn {
+    .nav__line {
+      background-color: #000;
+    }
+  }
+}
+
+.scroll-disable {
+  overflow: hidden !important;
+}
+
+/*
+
+KEYFRAMES
+
+*/
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translate-up {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-overlay {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes scale-overlay-mobile {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes logo-animate {
+  0% {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-item-animate {
+  0% {
+    opacity: 0;
+    transform: translateY(15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

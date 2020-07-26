@@ -1,0 +1,122 @@
+.site-wrapper {
+  height: 100%;
+  width: 100%;
+}
+// NAVIGATION MENU
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #eff0f1;
+  color: #000;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.5s all;
+}
+// MAIN HEADER
+.header {
+  opacity: 0;
+  position: relative;
+  z-index: 101;
+  animation: fade-in 1s forwards 3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s all;
+  width: 100%;
+}
+
+// INTRO SECTION
+.intro {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 5vw 0;
+
+  @include respond(tab-port) {
+    padding: 5vw 5vw;
+  }
+  @include respond(phone) {
+    padding: 5vw 0;
+  }
+}
+
+// CREATION SECTION
+.creation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rem 0;
+
+  @include respond(tab-port) {
+    padding: 5rem 0;
+    padding-bottom: 5rem;
+  }
+
+  @include respond(tab-smaller) {
+    flex-direction: column;
+  }
+}
+
+// DIFFERENCE SECTION
+
+.difference {
+  padding: 15rem 0;
+  position: relative;
+
+  @include respond(tab-smaller) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+// STYLES SECTION
+
+.styles {
+  padding: 15rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+    padding-top: 5rem;
+  }
+}
+
+// SEASONS
+
+.seasons {
+  padding: 10rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond(tab-smaller) {
+    flex-direction: column;
+  }
+}
+
+// SHOP
+.shop {
+  padding: 10rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @include respond(tab-smaller) {
+    flex-direction: column;
+  }
+}
+
+// FOOTER
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,528 @@
+// NAV
+.nav {
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    z-index: 999;
+  }
+
+  &__btn:hover &__line {
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__line {
+    background: #fff;
+    height: 2px;
+    display: inline-block;
+    transition: 0.2s all;
+
+    &:not(:last-child) {
+      margin-bottom: 0.3rem;
+    }
+
+    &--one {
+      width: 2rem;
+    }
+
+    &--two {
+      width: 1.5rem;
+    }
+
+    &--three {
+      width: 1rem;
+    }
+  }
+
+  // Navigation Menu
+  &__list {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    font-size: 4vw;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(tab-port) {
+      font-size: 5vw;
+    }
+    @include respond(tab-smaller) {
+      font-size: 6vw;
+    }
+  }
+
+  &__item {
+    display: none;
+    opacity: 0;
+    cursor: pointer;
+    // display: inline-block;
+    transition: 0.5s all;
+    position: relative;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 50%,
+      #000 50%
+    );
+    background-size: 230%;
+    transform: translateY(15%);
+    backface-visibility: hidden;
+    animation: nav-item-animate 1s forwards;
+
+    &:hover {
+      color: #eff0f1;
+      background-position: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &:nth-child(1) {
+      animation-delay: 0.6s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+    &:nth-child(3) {
+      animation-delay: 1s;
+    }
+    &:nth-child(4) {
+      animation-delay: 1.2s;
+    }
+  }
+}
+
+// INTRO
+.intro {
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../img/hero.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity: 1;
+    transform: scale(1.1);
+    overflow: hidden;
+    animation: fade-in 1s forwards cubic-bezier(0.87, 0, 0.13, 1),
+      scale-overlay 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1);
+
+    @include respond(tab-port) {
+      animation: fade-in 1s forwards cubic-bezier(0.87, 0, 0.13, 1),
+        scale-overlay-mobile 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1);
+    }
+  }
+
+  &__overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #eff0f1;
+    opacity: 0.1;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-100%);
+    animation: translate-up 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  &__logo {
+    opacity: 0;
+    animation: logo-animate 1s forwards 3s;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: #eee;
+
+    &--main {
+      letter-spacing: 0.5rem;
+    }
+
+    &--sub {
+      align-self: flex-end;
+      font-size: 2vw;
+      margin-top: -2vw;
+      margin-right: 2vw;
+
+      @include respond(tab-port) {
+        font-size: 3vw;
+      }
+      @include respond(tab-smaller) {
+        font-size: 4vw;
+      }
+      @include respond(phone) {
+        font-size: 4.5vw;
+      }
+    }
+  }
+
+  &__design {
+    background: #eff0f1;
+    color: #000;
+    padding: 2rem 0;
+  }
+}
+
+// CREATION
+.creation {
+  &__image {
+    width: 30vw;
+    height: 80vh;
+    object-fit: cover;
+    box-shadow: $shadow;
+
+    @include respond(tab-land) {
+      width: 40vw;
+    }
+
+    @include respond(tab-smaller) {
+      width: 80vw;
+      height: 60vh;
+    }
+  }
+
+  &__message {
+    width: 40vw;
+
+    @include respond(tab-land) {
+      width: 30vw;
+    }
+
+    @include respond(tab-port) {
+      width: 40vw;
+    }
+
+    @include respond(tab-smaller) {
+      width: 80vw;
+    }
+  }
+}
+
+// DIFFERENCE
+.difference {
+  &__img {
+    @include respond(tab-smaller) {
+      order: -1;
+    }
+  }
+  &__image {
+    width: 35vw;
+    height: 80vh;
+    object-fit: cover;
+    box-shadow: $shadow;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include respond(tab-smaller) {
+      position: relative;
+      width: 80vw;
+    }
+  }
+
+  &__message {
+    width: 38vw;
+
+    @include respond(tab-smaller) {
+      width: 80vw;
+      text-align: right;
+    }
+
+    p {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+// STYLES
+
+.styles {
+  &__header {
+    text-align: center;
+    .sub-text {
+      margin-top: 0;
+    }
+  }
+
+  &__gallery {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(tab-smaller) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__container {
+    width: 30vw;
+    height: 80vh;
+    box-shadow: $shadow;
+    overflow: hidden;
+    position: relative;
+
+    @include respond(tab-port) {
+      width: 40vw;
+    }
+
+    @include respond(tab-smaller) {
+      width: 80vw;
+
+      &:first-child {
+        margin-bottom: 5vh;
+      }
+    }
+
+    &--men:hover .styles__gender--men,
+    &--women:hover .styles__gender--women {
+      transform: scale(1.05);
+      opacity: 0.5;
+    }
+  }
+
+  &__shop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: 500;
+    opacity: 0;
+    transition: 0.2s all;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__gender {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 0.9;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    &:hover + .styles__shop {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &--men {
+      background-image: url("../img/men.jpg");
+      bottom: 0;
+    }
+
+    &--women {
+      background-image: url("../img/women.jpg");
+    }
+  }
+
+  &__category {
+    position: absolute;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    padding: 1rem 2rem;
+    transform: skew(-15deg);
+
+    &--men {
+      top: 0;
+      margin-left: -1rem;
+      padding-left: 3rem;
+    }
+
+    &--women {
+      bottom: 0;
+      right: 0;
+      margin-right: -1rem;
+      padding-right: 3rem;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    transform: skew(15deg);
+    font-weight: 500;
+  }
+}
+
+// SEASONS
+.seasons {
+  &__selections {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @include respond(tab-smaller) {
+      margin: 5vh 0;
+    }
+  }
+
+  &__select {
+    color: #000;
+    font-size: 3.2vw;
+    transition: 0.5s text-decoration;
+    text-decoration-color: transparent;
+
+    @include respond(tab-smaller) {
+      font-size: 5vw;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // gallery
+  &__gallery {
+    height: 80vh;
+    width: 25vw;
+    position: relative;
+
+    @include respond(tab-smaller) {
+      height: 70vh;
+      width: 80vw;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.2s all;
+    box-shadow: $shadow;
+  }
+}
+
+// SHOP
+.shop {
+  &__desc {
+    h3 {
+      margin-bottom: 2rem;
+    }
+    text-align: center;
+  }
+
+  &__img {
+    background-image: url("../img/shop.jpg");
+    background-size: cover;
+    background-position: bottom;
+
+    box-shadow: $shadow;
+    height: 85vh;
+    width: 40vw;
+
+    @include respond(tab-smaller) {
+      width: 80vw;
+      height: 60vh;
+      margin-bottom: 5vh;
+    }
+  }
+}
+
+// FOOTER
+.footer {
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    top: 0;
+  }
+
+  .text {
+    color: #000;
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+  }
+
+  &__heading {
+    font-size: 10vw;
+
+    @include respond(tab-smaller) {
+      font-size: 12vw;
+    }
+  }
+
+  &__to-top {
+    cursor: pointer;
+  }
+
+  &__link {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    display: inline-block;
+    color: #fff;
+    transition: 0.2s all;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+// BUTTONS
+.btn {
+  border: 2px solid #000;
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1vw 2vw;
+  transition: 0.2s all;
+
+  @include respond(tab-port) {
+    font-size: 2vw;
+  }
+
+  @include respond(phone) {
+    font-size: 3vw;
+  }
+
+  &:hover,
+  &:active {
+    background: #000;
+    color: #fff;
+  }
+}
