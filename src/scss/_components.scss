@@ -119,6 +119,8 @@
       scale-overlay 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1);
 
     @include respond(tab-port) {
+      background-image: url("../img/hero-mobile.jpg");
+      filter: grayscale(90%);
       animation: fade-in 1s forwards cubic-bezier(0.87, 0, 0.13, 1),
         scale-overlay-mobile 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1);
     }
@@ -161,7 +163,7 @@
         font-size: 3vw;
       }
       @include respond(tab-smaller) {
-        font-size: 4vw;
+        font-size: 3.5vw;
       }
       @include respond(phone) {
         font-size: 4.5vw;
@@ -433,7 +435,11 @@
 
     box-shadow: $shadow;
     height: 85vh;
-    width: 40vw;
+    width: 35vw;
+
+    @include respond(tab-land) {
+      width: 40vw;
+    }
 
     @include respond(tab-smaller) {
       width: 80vw;
@@ -506,18 +512,20 @@
 .btn {
   border: 2px solid #000;
   color: #000;
-  font-weight: 500;
+  font-size: 1.25vw;
+  font-weight: 300;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1vw 2vw;
+  padding: 1vw 1.5vw;
   transition: 0.2s all;
 
   @include respond(tab-port) {
     font-size: 2vw;
+    padding: 1vw 2vw;
   }
 
   @include respond(phone) {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   &:hover,

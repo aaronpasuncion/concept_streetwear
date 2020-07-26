@@ -376,6 +376,8 @@ KEYFRAMES
   animation: fade-in 1s forwards cubic-bezier(0.87, 0, 0.13, 1), scale-overlay 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1); }
   @media only screen and (max-width: 56.25em) {
     .intro__overlay {
+      background-image: url("../img/hero-mobile.jpg");
+      filter: grayscale(90%);
       animation: fade-in 1s forwards cubic-bezier(0.87, 0, 0.13, 1), scale-overlay-mobile 1.5s forwards 1s cubic-bezier(0.87, 0, 0.13, 1); } }
 
 .intro__overlay-bg {
@@ -411,7 +413,7 @@ KEYFRAMES
         font-size: 3vw; } }
     @media only screen and (max-width: 48em) {
       .intro__logo--sub {
-        font-size: 4vw; } }
+        font-size: 3.5vw; } }
     @media only screen and (max-width: 37.5em) {
       .intro__logo--sub {
         font-size: 4.5vw; } }
@@ -610,7 +612,10 @@ KEYFRAMES
   background-position: bottom;
   box-shadow: 0 3rem 4rem rgba(0, 0, 0, 0.15);
   height: 85vh;
-  width: 40vw; }
+  width: 35vw; }
+  @media only screen and (max-width: 75em) {
+    .shop__img {
+      width: 40vw; } }
   @media only screen and (max-width: 48em) {
     .shop__img {
       width: 80vw;
@@ -662,17 +667,19 @@ KEYFRAMES
 .btn {
   border: 2px solid #000;
   color: #000;
-  font-weight: 500;
+  font-size: 1.25vw;
+  font-weight: 300;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1vw 2vw;
+  padding: 1vw 1.5vw;
   transition: 0.2s all; }
   @media only screen and (max-width: 56.25em) {
     .btn {
-      font-size: 2vw; } }
+      font-size: 2vw;
+      padding: 1vw 2vw; } }
   @media only screen and (max-width: 37.5em) {
     .btn {
-      font-size: 3vw; } }
+      font-size: 4vw; } }
   .btn:hover, .btn:active {
     background: #000;
     color: #fff; }
